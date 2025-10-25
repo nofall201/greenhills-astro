@@ -1,22 +1,30 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import "../styles/global.css";         // aktifkan Tailwind
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>GreenHills Residence & Villa</title>
+    <meta name="description" content="Hunian bernuansa villa pegunungan di Sukabumi — nyaman untuk keluarga, menguntungkan untuk investasi." />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+  <body class="min-h-screen flex flex-col bg-white text-gray-900 scroll-smooth">
+    <!-- Navbar -->
+    <Header />
+
+    <!-- Konten unik tiap halaman -->
+    <main class=flex-grow>
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <Footer />
+
+    <!-- Alpine.js untuk interaktivitas (expand unit dll) -->
+    <script src="/node_modules/alpinejs/dist/cdn.min.js" defer></script>
+  </body>
+</html>
